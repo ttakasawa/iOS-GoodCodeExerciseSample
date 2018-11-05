@@ -8,15 +8,28 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    func demoMode() -> Bool{
+        return false
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        
+        let isDemo: Bool = self.demoMode()
+        
+        if isDemo {
+            Global.network = Global.DemoNetwork()
+        }
+        
         return true
     }
 

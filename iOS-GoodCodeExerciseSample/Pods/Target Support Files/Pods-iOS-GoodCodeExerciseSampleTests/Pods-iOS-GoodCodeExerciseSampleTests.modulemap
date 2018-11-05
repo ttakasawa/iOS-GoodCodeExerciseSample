@@ -1,0 +1,6 @@
+framework module Pods_iOS_GoodCodeExerciseSampleTests {
+  umbrella header "Pods-iOS-GoodCodeExerciseSampleTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

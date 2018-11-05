@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0967265E710DAA282B3D9876 /* Pods_iOS_GoodCodeExerciseSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DBEE0158F4FB3555158D124 /* Pods_iOS_GoodCodeExerciseSampleTests.framework */; };
 		B2FA9093218F7C8100A1B63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA9092218F7C8100A1B63E /* AppDelegate.swift */; };
 		B2FA9095218F7C8100A1B63E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA9094218F7C8100A1B63E /* ViewController.swift */; };
 		B2FA9098218F7C8100A1B63E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2FA9096218F7C8100A1B63E /* Main.storyboard */; };
@@ -14,6 +15,14 @@
 		B2FA909D218F7C8300A1B63E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2FA909C218F7C8300A1B63E /* Assets.xcassets */; };
 		B2FA90A0218F7C8300A1B63E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2FA909E218F7C8300A1B63E /* LaunchScreen.storyboard */; };
 		B2FA90AB218F7C8300A1B63E /* iOS_GoodCodeExerciseSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90AA218F7C8300A1B63E /* iOS_GoodCodeExerciseSampleTests.swift */; };
+		B2FA90B6218F7FA400A1B63E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2FA90B5218F7FA300A1B63E /* GoogleService-Info.plist */; };
+		B2FA90BA218F818D00A1B63E /* FirebaseEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90B9218F818D00A1B63E /* FirebaseEndpoints.swift */; };
+		B2FA90BD218F82B100A1B63E /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90BC218F82B100A1B63E /* UserData.swift */; };
+		B2FA90BF218F831400A1B63E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90BE218F831400A1B63E /* NetworkManager.swift */; };
+		B2FA90C4218F83E100A1B63E /* UserNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90C3218F83E100A1B63E /* UserNetwork.swift */; };
+		B2FA90C7218F848800A1B63E /* UserEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90C6218F848800A1B63E /* UserEndpoints.swift */; };
+		B2FA90C9218F875C00A1B63E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90C8218F875C00A1B63E /* Network.swift */; };
+		B486D01BB76A6E58960B9AAB /* Pods_iOS_GoodCodeExerciseSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7026258F0A29AED93DDAAEBA /* Pods_iOS_GoodCodeExerciseSample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +36,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05F287062D60D7B3AE198DCE /* Pods-iOS-GoodCodeExerciseSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-GoodCodeExerciseSampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-GoodCodeExerciseSampleTests/Pods-iOS-GoodCodeExerciseSampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		068915F8A67B89460B8A0882 /* Pods-iOS-GoodCodeExerciseSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-GoodCodeExerciseSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-GoodCodeExerciseSample/Pods-iOS-GoodCodeExerciseSample.release.xcconfig"; sourceTree = "<group>"; };
+		7026258F0A29AED93DDAAEBA /* Pods_iOS_GoodCodeExerciseSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_GoodCodeExerciseSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DBEE0158F4FB3555158D124 /* Pods_iOS_GoodCodeExerciseSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_GoodCodeExerciseSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8292883573530F0441A0D2E4 /* Pods-iOS-GoodCodeExerciseSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-GoodCodeExerciseSampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-GoodCodeExerciseSampleTests/Pods-iOS-GoodCodeExerciseSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8B175535F7431E6B70F765DD /* Pods-iOS-GoodCodeExerciseSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-GoodCodeExerciseSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-GoodCodeExerciseSample/Pods-iOS-GoodCodeExerciseSample.debug.xcconfig"; sourceTree = "<group>"; };
 		B2FA908F218F7C8100A1B63E /* iOS-GoodCodeExerciseSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-GoodCodeExerciseSample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FA9092218F7C8100A1B63E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2FA9094218F7C8100A1B63E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +53,13 @@
 		B2FA90A6218F7C8300A1B63E /* iOS-GoodCodeExerciseSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-GoodCodeExerciseSampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FA90AA218F7C8300A1B63E /* iOS_GoodCodeExerciseSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_GoodCodeExerciseSampleTests.swift; sourceTree = "<group>"; };
 		B2FA90AC218F7C8300A1B63E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2FA90B5218F7FA300A1B63E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B2FA90B9218F818D00A1B63E /* FirebaseEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseEndpoints.swift; sourceTree = "<group>"; };
+		B2FA90BC218F82B100A1B63E /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		B2FA90BE218F831400A1B63E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B2FA90C3218F83E100A1B63E /* UserNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetwork.swift; sourceTree = "<group>"; };
+		B2FA90C6218F848800A1B63E /* UserEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoints.swift; sourceTree = "<group>"; };
+		B2FA90C8218F875C00A1B63E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B486D01BB76A6E58960B9AAB /* Pods_iOS_GoodCodeExerciseSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +75,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0967265E710DAA282B3D9876 /* Pods_iOS_GoodCodeExerciseSampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		985348A1B3FA1DB5A2B4A263 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B175535F7431E6B70F765DD /* Pods-iOS-GoodCodeExerciseSample.debug.xcconfig */,
+				068915F8A67B89460B8A0882 /* Pods-iOS-GoodCodeExerciseSample.release.xcconfig */,
+				8292883573530F0441A0D2E4 /* Pods-iOS-GoodCodeExerciseSampleTests.debug.xcconfig */,
+				05F287062D60D7B3AE198DCE /* Pods-iOS-GoodCodeExerciseSampleTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B2FA9086218F7C8100A1B63E = {
 			isa = PBXGroup;
 			children = (
 				B2FA9091218F7C8100A1B63E /* iOS-GoodCodeExerciseSample */,
 				B2FA90A9218F7C8300A1B63E /* iOS-GoodCodeExerciseSampleTests */,
 				B2FA9090218F7C8100A1B63E /* Products */,
+				985348A1B3FA1DB5A2B4A263 /* Pods */,
+				F9FF791D371F597B2CBFDD95 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +116,8 @@
 		B2FA9091218F7C8100A1B63E /* iOS-GoodCodeExerciseSample */ = {
 			isa = PBXGroup;
 			children = (
+				B2FA90BB218F829800A1B63E /* DataModels */,
+				B2FA90B7218F814900A1B63E /* NetworkLayer */,
 				B2FA9092218F7C8100A1B63E /* AppDelegate.swift */,
 				B2FA9094218F7C8100A1B63E /* ViewController.swift */,
 				B2FA9096218F7C8100A1B63E /* Main.storyboard */,
@@ -86,6 +125,7 @@
 				B2FA909E218F7C8300A1B63E /* LaunchScreen.storyboard */,
 				B2FA90A1218F7C8300A1B63E /* Info.plist */,
 				B2FA9099218F7C8100A1B63E /* iOS_GoodCodeExerciseSample.xcdatamodeld */,
+				B2FA90B5218F7FA300A1B63E /* GoogleService-Info.plist */,
 			);
 			path = "iOS-GoodCodeExerciseSample";
 			sourceTree = "<group>";
@@ -99,6 +139,59 @@
 			path = "iOS-GoodCodeExerciseSampleTests";
 			sourceTree = "<group>";
 		};
+		B2FA90B7218F814900A1B63E /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				B2FA90C2218F83CD00A1B63E /* TypeNetwork */,
+				B2FA90B8218F816D00A1B63E /* FirebaseEndpoints */,
+				B2FA90BE218F831400A1B63E /* NetworkManager.swift */,
+				B2FA90C8218F875C00A1B63E /* Network.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		B2FA90B8218F816D00A1B63E /* FirebaseEndpoints */ = {
+			isa = PBXGroup;
+			children = (
+				B2FA90C5218F847400A1B63E /* NetworkEndpoints */,
+				B2FA90B9218F818D00A1B63E /* FirebaseEndpoints.swift */,
+			);
+			path = FirebaseEndpoints;
+			sourceTree = "<group>";
+		};
+		B2FA90BB218F829800A1B63E /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				B2FA90BC218F82B100A1B63E /* UserData.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		B2FA90C2218F83CD00A1B63E /* TypeNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				B2FA90C3218F83E100A1B63E /* UserNetwork.swift */,
+			);
+			path = TypeNetwork;
+			sourceTree = "<group>";
+		};
+		B2FA90C5218F847400A1B63E /* NetworkEndpoints */ = {
+			isa = PBXGroup;
+			children = (
+				B2FA90C6218F848800A1B63E /* UserEndpoints.swift */,
+			);
+			path = NetworkEndpoints;
+			sourceTree = "<group>";
+		};
+		F9FF791D371F597B2CBFDD95 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7026258F0A29AED93DDAAEBA /* Pods_iOS_GoodCodeExerciseSample.framework */,
+				7DBEE0158F4FB3555158D124 /* Pods_iOS_GoodCodeExerciseSampleTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B2FA90AF218F7C8300A1B63E /* Build configuration list for PBXNativeTarget "iOS-GoodCodeExerciseSample" */;
 			buildPhases = (
+				26016ADF9E79A727E74182B4 /* [CP] Check Pods Manifest.lock */,
 				B2FA908B218F7C8100A1B63E /* Sources */,
 				B2FA908C218F7C8100A1B63E /* Frameworks */,
 				B2FA908D218F7C8100A1B63E /* Resources */,
+				73C4BE58D94E1E283E0A7568 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +218,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B2FA90B2218F7C8300A1B63E /* Build configuration list for PBXNativeTarget "iOS-GoodCodeExerciseSampleTests" */;
 			buildPhases = (
+				5F0A559034FE2BF5A48446DA /* [CP] Check Pods Manifest.lock */,
 				B2FA90A2218F7C8300A1B63E /* Sources */,
 				B2FA90A3218F7C8300A1B63E /* Frameworks */,
 				B2FA90A4218F7C8300A1B63E /* Resources */,
@@ -180,6 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2FA90B6218F7FA400A1B63E /* GoogleService-Info.plist in Resources */,
 				B2FA90A0218F7C8300A1B63E /* LaunchScreen.storyboard in Resources */,
 				B2FA909D218F7C8300A1B63E /* Assets.xcassets in Resources */,
 				B2FA9098218F7C8100A1B63E /* Main.storyboard in Resources */,
@@ -195,13 +292,88 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		26016ADF9E79A727E74182B4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOS-GoodCodeExerciseSample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F0A559034FE2BF5A48446DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOS-GoodCodeExerciseSampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73C4BE58D94E1E283E0A7568 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-iOS-GoodCodeExerciseSample/Pods-iOS-GoodCodeExerciseSample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS-GoodCodeExerciseSample/Pods-iOS-GoodCodeExerciseSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B2FA908B218F7C8100A1B63E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2FA90BF218F831400A1B63E /* NetworkManager.swift in Sources */,
+				B2FA90C7218F848800A1B63E /* UserEndpoints.swift in Sources */,
 				B2FA909B218F7C8100A1B63E /* iOS_GoodCodeExerciseSample.xcdatamodeld in Sources */,
+				B2FA90C4218F83E100A1B63E /* UserNetwork.swift in Sources */,
 				B2FA9095218F7C8100A1B63E /* ViewController.swift in Sources */,
+				B2FA90C9218F875C00A1B63E /* Network.swift in Sources */,
+				B2FA90BA218F818D00A1B63E /* FirebaseEndpoints.swift in Sources */,
+				B2FA90BD218F82B100A1B63E /* UserData.swift in Sources */,
 				B2FA9093218F7C8100A1B63E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +534,7 @@
 		};
 		B2FA90B0218F7C8300A1B63E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B175535F7431E6B70F765DD /* Pods-iOS-GoodCodeExerciseSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -380,6 +553,7 @@
 		};
 		B2FA90B1218F7C8300A1B63E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 068915F8A67B89460B8A0882 /* Pods-iOS-GoodCodeExerciseSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -398,6 +572,7 @@
 		};
 		B2FA90B3218F7C8300A1B63E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8292883573530F0441A0D2E4 /* Pods-iOS-GoodCodeExerciseSampleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -419,6 +594,7 @@
 		};
 		B2FA90B4218F7C8300A1B63E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05F287062D60D7B3AE198DCE /* Pods-iOS-GoodCodeExerciseSampleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
