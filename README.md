@@ -1,6 +1,6 @@
 # iOS-GoodCodeExerciseSample
 
-This project is a sample project to practice writing clean and manageable protocol oriented code. It is an app that contains all information necessary for candidates who is applying for the job. It may eliminate the need for candidates to keep submitting applications to multiple website over and over, if standardized. In this sample, I have added Resume, Github link, LinkedIn link, link for my app, Business Insider article featureing my app, and transcript. Please take a look!
+This project is a sample project to practice writing clean and manageable protocol oriented code. It is an app that contains all information necessary for recruiters to examine candidates. It may eliminate the need for candidates to keep submitting applications to multiple website over and over, if standardized. In this sample, I have added Resume, Github link, LinkedIn link, my iOS app, Business Insider article featureing my app, and transcript. Please take a look!
 ##### Note
 * Please feel free to run it on your iPhone!
 * Time of development: 20 hrs
@@ -11,7 +11,7 @@ This project is a sample project to practice writing clean and manageable protoc
 
 ## Data Model
 #### UserData
-This is responsible for storing user's attributes.
+This object is responsible for storing user's attributes. Because UserData should be mutable, reference type is more appropriate.
 ```
 class UserData: Codable {
     var id: String
@@ -29,7 +29,7 @@ class UserData: Codable {
 }
 ```
 #### UserApplicationData
-UserApplicationData object contains all user generated values for each of their application materials.
+UserApplicationData object contains user generated values for each of their application materials. Value type is sufficient for this object, as it does not need to be mutable.
 ```
 struct UserApplicationData: Codable {
     
@@ -42,7 +42,7 @@ struct UserApplicationData: Codable {
 ```
 
 #### ApplicationMaterial
-This is an enenumeratorum for differet types of application materials such as linkedin, resume, etc.
+This is an enumerator for differet types of application materials such as linkedin, resume, etc.
 ```
 enum ApplicationMaterial: String, Codable, ColorStyles {
 
@@ -68,55 +68,10 @@ enum ApplicationMaterial: String, Codable, ColorStyles {
 
 ## Network Layer
 Here comes the fun part.
-#### UserNetwork
-This model object is responsible for querying, updating, and log-in of UserData object. It executes all networking stuff for UserData object, and works as an interface of NetworkManager.
-```
-protocol UserNetwork {
 
-    var user: UserData? { get set }
-    
-    func login(email: String, password: String, completion: @escaping (_ user: UserData?, _ error: Error?) -> Void)
-    func queryUser(userId: String, completion: @escaping (_ user: UserData?, _ error: Error?) -> Void)
-    func updateUserInfo(user: UserData, completion: @escaping (_ user: UserData?, _ error: Error?) -> Void)
-    
-}
-```
-
-This protocol requires NetworkManager to make actual call to the database. The description about NetworkManager is in the next sub-section.
-
-```
-extension UserNetwork where Self: NetworkManager {
-    func login(email: String, password: String, completion: @escaping (_ user: UserData? , _ error: Error?) -> Void) {
-        
-//        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-//        }
-        
-    }
-    
-    
-    func updateUserInfo(user: UserData, completion: @escaping (_ user: UserData?, _ error: Error?) -> Void) {
-        
-        self.fetchFirebase(endpoint: UserEndpoints.updateUser(user: user)) { (user: UserData?, error: Error?) in
-            completion(user, error)
-        }
-    }
-    
-    func queryUser(userId: String, completion: @escaping (_ user: UserData?, _ error: Error?) -> Void){
-        
-        self.fetchFirebase(endpoint: UserEndpoints.queryUser(userId: userId)) { (userData: UserData?, error: Error?) in
-            
-            completion(userData, error)
-            
-        }
-    }
-}
-```
-
-Note: (Explanation to fetchFirebase and UserEndpoints.queryUser(userId: userId) is in later section.)
-
-
-#### NetworkManager
-This is responsible for communicating with Firebase real time database. As you can see from the example in the prevous sub-section, protocols such as UserNetwork is used as interface for NetworkManager. NetworkManager is the one that is actually making a call to Firebase.
+### NetworkManager
+NetworkManager is responsible for communicating with Firebase, and is the only one that is making calls to Firebase 
+* Or, retrieving data from local json file for testing purpose. (mentioned in 'unit testing' section)
 ```
 protocol NetworkManager {
     var firebaseDBConnection: DatabaseReference { get set }
@@ -128,13 +83,15 @@ protocol NetworkManager {
 ```
 
 
-One of the functions here, fetchFirebase, is solely responsible for communicating with real time database.  Clever use of endpoint allows fetchFirebase to stay absctract, so it can be reused over and over. The description for FirebaseEndpoints is in the later subsection.
+One of the functions here, fetchFirebase, is solely responsible for communicating with real time database. A clever use of endpoints allows fetchFirebase to stay absctract, so it can be re-used over and over. 
+
+* The description for endpoint is in the next subsection.
 
 ##### fetchFirebase
-This function is an abstract function which can be used for any calls to firebase. Variables that needs to be changed based on each network calls can be switched using endpoints. Furthermore, it only returns generic type variable that is gurenteed to be decodable. In this example, it is responsibility of UserNetwork to convert thie generic type variable to UserData variable. 
+This function is an abstract function which should be used for any calls to real time database. Variables that need to be changed based on network calls should be injected as an endpoint. In addition, this function only returns generic type variable that is gurenteed to be decodable. Therefore, it is responsibility of interfaces to convert from generic type variable to concrete type that app uses.
 
 ###### Path
-path can be created by combining variable realtimeRef protocol and path of endpoint. realtimeRef is a variable of NetworkManager and fixed for all kinds of call. Endpoint is injected to function every time the network call is made, which can be unique for every calls.
+path can be created by combining realtimeRef variable (declared in NetworkManager) and path of endpoint. The variable, realtimeRef, is fixed for all kinds of call. On the other hand, path is a variable of FirebaseEndpoints, which is injected to this function every time the network call is made. Of course, this endpoint should be unique for every calls.
 ```
 var realtimeRef: DatabaseReference!
         
@@ -146,7 +103,7 @@ if let path = endpoint.path {
 ```
 
 ###### Querying or updating
-Whether or not the call is read can be determined based on the body of endpoint. When you are only reading from firebase, body must be empty. On the other hand, body has to exist if you are writing to database.
+Whether the call is read or write can be determined based on the body of endpoints. When you are reading from database, body must be empty. On the other hand, body has to exist if you are writing to database.
 ```
 if let body = endpoint.body {
 
@@ -182,79 +139,11 @@ if let body = endpoint.body {
 }
 ```
 
-
-
-
-
-#### SampleNetwork
-All of Network objects listed above are attached to this protocol. As the app gets larger and more complex, you can attach more Networking Protocols here.
-```
-protocol SampleNetwork: NetworkManager, UserNetwork { } 
-```
-
-
-
-#### Top Level Network Layer
-
-SampleNetwork can be used as a singleton on Global struct like following:
-```
-struct Global {
-
-    class Network: SampleNetwork {
-    
-        var firebaseDBConnection: DatabaseReference
-        var user: UserData?
-        //initialize necessary information here.
-    }
-    
-    class DemoNetwork: SampleNetwork {
-    
-        var firebaseDBConnection: DatabaseReference
-        var user: UserData?
-    }
-    
-    static var network: SampleNetwork = Network()
-}
-```
-
-This Global.network should be injected to the first ViewController upon initialization. Afterwards, it can be passed to any other ViewControllers that needs to make network calls. 
-
-
-
-
-#### Unit Testing
-
-If you'd like to see UI of the app without making real network calls to Firebase, you can use DemoNetowrk and query from local json. This is convenient for the testing purpose. For example, it enables you to test how UI interact with new data without actually updating real time database. 
-
-
-Depending on whether or not you would make network call to firebase, you might want to have different implementation of NetworkManager like following:
-```
-extension NetworkManager where Self: Global.Network {
-    // real call to firebase
-    // Please check out the project, it is too long for Readme
-}
-extension NetworkManager where Self: Global.DemoNetwork {
-    //test
-}
-```
-
-
-In order to switch to DemoNetwork, you'd simpley add
-```
-if isDemo {
-    Global.network = Global.DemoNetwork()
-}
-```
-in AppDelegate.
-
-
-
-
 ### Endpoints
-As briefly mentioned earlier, a clever use of endpoints is the reason why I could keep reusing one function to query / update any data from real time database.
+As briefly mentioned earlier, a clever use of endpoints is the reason why I could keep re-using one function to query / update any data from real time database.
 
 #### FirebaseEndpoints
-This protocol promises variables needed to make call to database will be provided. By changing the values of those variables of endpoint and injecting them to fetchFirebase() function in NetworkManager, you can reuse fetchFirebase() function for any calls to real time database.
+This protocol promises variables, which are needed to make calls to database, will be provided. By changing the value of those variables in FirebaseEndpoints and injecting them to fetchFirebase() function in NetworkManager, you can make fetchFirebase() function to stay abstract.
 ```
 protocol FirebaseEndpoints {
     
@@ -265,10 +154,11 @@ protocol FirebaseEndpoints {
     
 }
 ```
-Notice that, you can use 'body' to distinguish whether a call is read or write. (When you would like to read from database, your 'body' variable is nil.)
 
-This protocol also gurantees a method which takes Encodable object and encode for firebase real time database
+This protocol also gurantees a method which takes Encodable object as parameter and convert to accepted types for firebase real time database.
 ```
+import CodableFirebase
+
 extension FirebaseEndpoints {
     func toData<T: Encodable>(object: T) -> Any? {
         let encoder = FirebaseEncoder()
@@ -283,7 +173,7 @@ extension FirebaseEndpoints {
 ```
 
 
-Generally, there are many different types of calls you have to make to if the app becomes more complex. Therefore, it may be a good practice to group endpoints by theme. 
+Generally, there are many different types of calls you have to make to real time database as the app gets more complex. Therefore, it may be a good practice to group endpoints by theme. 
 
 
 For example, all the UserData related endpoints might be grouped as following:
@@ -314,21 +204,139 @@ enum UserEndpoints: FirebaseEndpoints {
         }
     }
     
+    var type: EndpointsType? {
+        //irrelevant for now..
+    }
+    
+}
+```
+### Interface
+With NetworkManager and FirebaseEndpoints being set up, it is time to work on interface for NetworkManager. As briefly mentioned earlier, it is responsibility of interfaces to convert generic type variables to concrete type variables that are used within the app.
+
+#### UserNetwork
+UserNetwork is responsible for behaviors of UserData object (such as querying, updating, and log-in). It executes all networking stuff for UserData object, and works as an interface of NetworkManager.
+```
+protocol UserNetwork {
+
+    var user: UserData? { get set }
+    
+    func login(email: String, password: String, completion: @escaping (_ user: UserData?, _ error: Error?) -> Void)
+    func queryUser(userId: String, completion: @escaping (_ user: UserData?, _ error: Error?) -> Void)
+    func updateUserInfo(user: UserData, completion: @escaping (_ user: UserData?, _ error: Error?) -> Void)
+    
+}
+```
+
+NetworkManager, is the one that is actually making calls to the firebase. UserNetwork is just an interface of NetworkManager. Therefore, the implementation of UserNetwork should be written as following:
+
+```
+extension UserNetwork where Self: NetworkManager {
+    func login(email: String, password: String, completion: @escaping (_ user: UserData? , _ error: Error?) -> Void) {
+        
+//        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+//        }
+        
+    }
+    
+    
+    func updateUserInfo(user: UserData, completion: @escaping (_ user: UserData?, _ error: Error?) -> Void) {
+        
+        self.fetchFirebase(endpoint: UserEndpoints.updateUser(user: user)) { (user: UserData?, error: Error?) in
+            completion(user, error)
+        }
+    }
+    
+    func queryUser(userId: String, completion: @escaping (_ user: UserData?, _ error: Error?) -> Void){
+        
+        self.fetchFirebase(endpoint: UserEndpoints.queryUser(userId: userId)) { (userData: UserData?, error: Error?) in
+            
+            completion(userData, error)
+            
+        }
+    }
 }
 ```
 
 
 
 
+### SampleNetwork
+All of Network objects listed above should be attached to this protocol. As the app gets larger and more complex, you can attach more Networking protocols here.
+```
+protocol SampleNetwork: NetworkManager, UserNetwork { } 
+```
+
+
+
+### Top Level Network Layer
+
+SampleNetwork can be used as a singleton on Global struct like following:
+```
+struct Global {
+
+    class Network: SampleNetwork {
+    
+        var firebaseDBConnection: DatabaseReference
+        var user: UserData?
+        //initialize necessary information here.
+    }
+    
+    class DemoNetwork: SampleNetwork {
+    
+        var firebaseDBConnection: DatabaseReference
+        var user: UserData?
+    }
+    
+    static var network: SampleNetwork = Network()
+}
+```
+
+This Global.network should be injected to the first ViewController upon initialization. Afterwards, it can be passed to any other ViewControllers that needs to make network calls. 
+
+
+
+
+### Unit Testing
+The ability to make network calls internally without really updating the firebae database can be useful for testing purpose. For example, imagine you are trying to upload new data to database, but you are not sure if new data looks good on the current UI. If you make a real call and upload data, it will affect real users. Therefore, ability to test UI without actually updating real time database can be useful.
+
+#### DemoNetwork
+
+DemoNetwork in Global is designed to solve this problem. 
+
+If you'd like to see the UI of the app without making real network calls to Firebase, you can use DemoNetowrk and query from local json. 
+
+Depending on whether or not you would make real network call to firebase, you need to have different implementations of NetworkManager like following:
+```
+extension NetworkManager where Self: Global.Network {
+    // real call to firebase
+    // Please check out the project, it is too long for Readme
+}
+extension NetworkManager where Self: Global.DemoNetwork {
+    // network call from local json file
+}
+```
+
+
+In order to switch to DemoNetwork, you'd simpley add
+```
+if isDemo {
+
+    Global.network = Global.DemoNetwork()
+    
+}
+```
+in application(_:didFinishLaunchingWithOptions:) of AppDelegate.
+
+
 
 
 ## Displayables
 
-Displayable is responsible for providing data that is needed to draw a view on ViewController.
+Displayable is responsible for providing data that is needed to draw a view on ViewController. 
 
 ### ApplicationDisplayable
 
-This is responsible for providing data about application materials. Each UserApplicationData object comforms this protocol. 
+ApplicationDisplayable is responsible for providing data about application materials. Each UserApplicationData object should conform this protocol.
 ```
 protocol ApplicationDisplayable {
 
@@ -341,10 +349,19 @@ protocol ApplicationDisplayable {
 ```
 
 
-This protocol is an interface for concrete object, UserApplicationData. By using such a protocol, ViewController does not need to know anything about concrete instance of data object to draw a view. Instead, it has ApplicationDisplayable to make sure that all necessary data would be provided.
+This protocol is an interface for concrete object, UserApplicationData. By using such a protocol, ViewController does not need to know anything about concrete instance of data object to draw a view. 
 ```
 extension UserApplicationData: ApplicationDisplayable {
-    //may need to supply data that is not in UserApplicationData, such as computed values here
+
+    // You may need to supply data that is not in UserApplicationData, such as computed values here
+    
+    var icon: UIImage {
+        return self.material.iconImage
+    }
+    
+    var themeColor: UIColor {
+        return self.material.backgroundColor
+    }
 }
 ```
 
@@ -371,8 +388,20 @@ protocol FontStyles {
 
 
 
-It can be customized for any objects by making extension, and can be used for any objects. 
+It can be customized for any objects like following: 
 
+```
+
+extension Stylable where Self: DetailViewController {
+
+    func getMainColor() -> UIColor {
+        return UIColor.white
+    }
+
+}
+```
+
+Then, you could attach it to any objects:
 ```
 class DetailViewController: UIViewController, Stylable {
 
@@ -385,30 +414,26 @@ class DetailViewController: UIViewController, Stylable {
     }
     
 }
-
-extension Stylable where Self: DetailViewController {
-
-    func getMainColor() -> UIColor {
-        return UIColor.white
-    }
-
-}
 ```
-
 
 
 
 
 
 ## ViewControllers
-
 ### RootTableViewController
-This ViewController is responsible for initiating a network call from Global.network, which is injected in the initialization. This network object can be injected to other ViewController, which requires to make netwrok call, if needed. 
+RootTableViewController is responsible for initiating a network call from Global.network, which is injected in the initialization of this ViewController. This network object can be injected to other ViewController, that need to make netwrok calls.
 ```
-init (network: SampleNetwork) {
+class RootTableViewController: UITableViewController {
 
-    self.network = network
+    var network: UserNetwork
+
+    init (network: SampleNetwork) {
     
+        self.network = network
+        super.init(nibName: nil, bundle: nil)
+        
+    }
 }
 ```
 
@@ -417,10 +442,9 @@ init (network: SampleNetwork) {
 Then, you can simply call any network call as following:
 ```
 self.network.queryUser(userId: "User_Id_Goes_Here") { (user: UserData?, error: Error?) in
+
     if error != nil {
-    
         return
-                
     }else{
     
         //Now, you have user data
@@ -428,14 +452,11 @@ self.network.queryUser(userId: "User_Id_Goes_Here") { (user: UserData?, error: E
 }
 ```
 
-
-
-Here, it is important not to call any functions in NetworkManager directly. The whole purpose of UserNetwork is to offer a layers of abstractions. This way, code remains more transparent, and also protocols such as NetworkManager can remain abstract to be used over and over.
-
-
+##### Important Side Note
+Here, it is important not to call any functions in NetworkManager directly. The whole purpose of UserNetwork is to offer a layers of abstractions. This way, code remains more transparent, and also protocols such as NetworkManager can remain abstract. Notice that variable network is type of UserNetwork. 
 
 
 ### DetailViewController
-This ViewController just displays WkWebView based on URL that is injected in initialization method. Both website and pdf are displayed in this manner. 
+This ViewController just displays WkWebView based on URL that is passed in initialization method. Both website and pdf are displayed in this manner. 
 
 
