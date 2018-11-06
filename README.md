@@ -3,7 +3,7 @@
 This project is a sample project to practice writing clean and manageable protocol oriented code. Please take a look!
 ##### Note
 * Please feel free to run it on your iPhone!
-* Time of development: 20 hrs
+* Time of development: 15 hrs
 
 
 ## Sample Images
