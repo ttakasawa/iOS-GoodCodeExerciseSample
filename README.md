@@ -1,6 +1,10 @@
 # iOS-GoodCodeExerciseSample
 
 This project is a sample project to practice writing clean and manageable protocol oriented code. Please take a look!
+##### Note
+* Please feel free to run it on your iPhone!
+* Time of development: 20 hrs
+
 
 ## Sample Images
 <img width="924" height="451" src="Resource/SampleImages.png"/>
