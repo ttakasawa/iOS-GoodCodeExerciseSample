@@ -1,6 +1,6 @@
 # iOS-GoodCodeExerciseSample
 
-This project is a sample project to practice writing clean and manageable protocol oriented code. Please take a look!
+This project is a sample project to practice writing clean and manageable protocol oriented code. It is an app that contains all information necessary for candidates who is applying for the job. It may eliminate the need for candidates to keep submitting applications to multiple website over and over, if standardized. In this sample, I have added Resume, Github link, LinkedIn link, link for my app, Business Insider article featureing my app, and transcript. Please take a look!
 ##### Note
 * Please feel free to run it on your iPhone!
 * Time of development: 20 hrs
@@ -161,6 +161,21 @@ protocol FirebaseEndpoints {
 }
 ```
 Notice that, you can use 'body' to distinguish whether a call is read or write. (When you would like to read from database, your 'body' variable is nil.)
+
+This protocol also gurantees a method which takes Encodable object and encode for firebase real time database
+```
+extension FirebaseEndpoints {
+    func toData<T: Encodable>(object: T) -> Any? {
+        let encoder = FirebaseEncoder()
+        do{
+            let jsonData = try encoder.encode(object)
+            return jsonData
+        }catch{
+            return nil
+        }
+    }
+}
+```
 
 
 Generally, there are many different types of calls you have to make to if the app becomes more complex. Therefore, it may be a good practice to group endpoints by theme. 
