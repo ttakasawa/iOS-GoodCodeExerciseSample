@@ -1,6 +1,7 @@
 # iOS-GoodCodeExerciseSample
 
 This project is a sample project to practice writing clean and manageable protocol oriented code. 
+<img width="420" height="240" src="Resources/home"/>
 
 ## Data Model
 UserData: This is a concrete instance 
