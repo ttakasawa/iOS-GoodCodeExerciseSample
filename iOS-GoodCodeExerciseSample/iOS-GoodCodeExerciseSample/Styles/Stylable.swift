@@ -7,12 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
 protocol Stylable: ColorStyles, FontStyles { }
 
 
-//extension Stylable where Self: DetailViewController {
-//
-//    override like this
-//
-//}
+extension Stylable where Self: DetailViewController {
+
+    func getMainColor() -> UIColor {
+        return UIColor.white
+    }
+
+}

@@ -29,6 +29,7 @@
 		B2FA90E42191138700A1B63E /* ApplicationMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90E32191138700A1B63E /* ApplicationMaterial.swift */; };
 		B2FA90E62191165700A1B63E /* UserApplicationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90E52191165700A1B63E /* UserApplicationData.swift */; };
 		B2FA90E82191188800A1B63E /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90E72191188800A1B63E /* FontStyles.swift */; };
+		B2FA90EB21914A5500A1B63E /* ApplicationDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90EA21914A5500A1B63E /* ApplicationDisplayable.swift */; };
 		B486D01BB76A6E58960B9AAB /* Pods_iOS_GoodCodeExerciseSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7026258F0A29AED93DDAAEBA /* Pods_iOS_GoodCodeExerciseSample.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		B2FA90E32191138700A1B63E /* ApplicationMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMaterial.swift; sourceTree = "<group>"; };
 		B2FA90E52191165700A1B63E /* UserApplicationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApplicationData.swift; sourceTree = "<group>"; };
 		B2FA90E72191188800A1B63E /* FontStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
+		B2FA90EA21914A5500A1B63E /* ApplicationDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDisplayable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		B2FA9091218F7C8100A1B63E /* iOS-GoodCodeExerciseSample */ = {
 			isa = PBXGroup;
 			children = (
+				B2FA90E921914A3B00A1B63E /* Displayable */,
 				B2FA90DE2190F40900A1B63E /* Styles */,
 				B2FA90D421909A5200A1B63E /* UIComponents */,
 				B2FA90CF219098ED00A1B63E /* ViewControllers */,
@@ -234,6 +237,14 @@
 				B2FA90E72191188800A1B63E /* FontStyles.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		B2FA90E921914A3B00A1B63E /* Displayable */ = {
+			isa = PBXGroup;
+			children = (
+				B2FA90EA21914A5500A1B63E /* ApplicationDisplayable.swift */,
+			);
+			path = Displayable;
 			sourceTree = "<group>";
 		};
 		F9FF791D371F597B2CBFDD95 /* Frameworks */ = {
@@ -425,6 +436,7 @@
 				B2FA90E62191165700A1B63E /* UserApplicationData.swift in Sources */,
 				B2FA90E02190F42100A1B63E /* ColorStyles.swift in Sources */,
 				B2FA90C7218F848800A1B63E /* UserEndpoints.swift in Sources */,
+				B2FA90EB21914A5500A1B63E /* ApplicationDisplayable.swift in Sources */,
 				B2FA909B218F7C8100A1B63E /* iOS_GoodCodeExerciseSample.xcdatamodeld in Sources */,
 				B2FA90DD2190C43C00A1B63E /* DetailViewController.swift in Sources */,
 				B2FA90E22190F4C600A1B63E /* Stylable.swift in Sources */,

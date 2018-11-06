@@ -10,11 +10,13 @@ import Foundation
 import CodableFirebase
 
 protocol FirebaseEndpoints {
+    
     var path: String? { get }
     var body: Any? { get }
     var type: EndpointsType? { get }
     
     func toData<T: Encodable>(object: T) -> Any?
+    
 }
 
 extension FirebaseEndpoints {

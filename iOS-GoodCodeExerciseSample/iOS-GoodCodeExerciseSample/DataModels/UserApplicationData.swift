@@ -15,12 +15,4 @@ struct UserApplicationData: Codable {
     var name: String
     var url: String
     
-    var icon: UIImage {
-        return self.material.iconImage
-    }
-    
-    var themeColor: UIColor {
-        return self.material.backgroundColor
-    }
-    
 }

@@ -11,7 +11,7 @@ import UIKit
 class RootTableViewController: UITableViewController {
     
     var network: SampleNetwork
-    var cellData: [UserApplicationData] = []
+    var cellData: [ApplicationDisplayable] = []
     
     init (network: SampleNetwork) {
         self.network = network
@@ -96,7 +96,7 @@ class RootTableViewController: UITableViewController {
         cell.iconImageView.tintColor = .white
         
         cell.selectionStyle = .none
-        cell.backgroundColor = self.cellData[indexPath.row].material.backgroundColor
+        cell.backgroundColor = self.cellData[indexPath.row].themeColor
         cell.layoutSubviews()
         
         return cell
