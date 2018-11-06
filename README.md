@@ -5,6 +5,17 @@ This project is a sample project to practice writing clean and manageable protoc
 * Please feel free to run it on your iPhone!
 * Time: 3 hrs designing + 12 hrs development + 5 hrs documentation
 
+##### Table of Contents
+* Data Model
+* Network Layer
+** NetworkManager
+** Endpoints
+** Interfaces
+** Unit Testing
+* Displayable
+* Stylable
+* ViewControllers
+
 
 ## Sample Images
 <img width="924" height="451" src="Resource/SampleImages.png"/>
