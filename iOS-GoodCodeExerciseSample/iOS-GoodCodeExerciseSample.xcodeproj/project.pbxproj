@@ -10,7 +10,6 @@
 		0967265E710DAA282B3D9876 /* Pods_iOS_GoodCodeExerciseSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DBEE0158F4FB3555158D124 /* Pods_iOS_GoodCodeExerciseSampleTests.framework */; };
 		B2FA9093218F7C8100A1B63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA9092218F7C8100A1B63E /* AppDelegate.swift */; };
 		B2FA9095218F7C8100A1B63E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA9094218F7C8100A1B63E /* ViewController.swift */; };
-		B2FA9098218F7C8100A1B63E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2FA9096218F7C8100A1B63E /* Main.storyboard */; };
 		B2FA909B218F7C8100A1B63E /* iOS_GoodCodeExerciseSample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2FA9099218F7C8100A1B63E /* iOS_GoodCodeExerciseSample.xcdatamodeld */; };
 		B2FA909D218F7C8300A1B63E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2FA909C218F7C8300A1B63E /* Assets.xcassets */; };
 		B2FA90A0218F7C8300A1B63E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2FA909E218F7C8300A1B63E /* LaunchScreen.storyboard */; };
@@ -30,6 +29,7 @@
 		B2FA90E22190F4C600A1B63E /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90E12190F4C600A1B63E /* Stylable.swift */; };
 		B2FA90E42191138700A1B63E /* ApplicationMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90E32191138700A1B63E /* ApplicationMaterial.swift */; };
 		B2FA90E62191165700A1B63E /* UserApplicationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90E52191165700A1B63E /* UserApplicationData.swift */; };
+		B2FA90E82191188800A1B63E /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90E72191188800A1B63E /* FontStyles.swift */; };
 		B486D01BB76A6E58960B9AAB /* Pods_iOS_GoodCodeExerciseSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7026258F0A29AED93DDAAEBA /* Pods_iOS_GoodCodeExerciseSample.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +53,6 @@
 		B2FA908F218F7C8100A1B63E /* iOS-GoodCodeExerciseSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-GoodCodeExerciseSample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FA9092218F7C8100A1B63E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2FA9094218F7C8100A1B63E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B2FA9097218F7C8100A1B63E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B2FA909A218F7C8100A1B63E /* iOS_GoodCodeExerciseSample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOS_GoodCodeExerciseSample.xcdatamodel; sourceTree = "<group>"; };
 		B2FA909C218F7C8300A1B63E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2FA909F218F7C8300A1B63E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +75,7 @@
 		B2FA90E12190F4C600A1B63E /* Stylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
 		B2FA90E32191138700A1B63E /* ApplicationMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMaterial.swift; sourceTree = "<group>"; };
 		B2FA90E52191165700A1B63E /* UserApplicationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApplicationData.swift; sourceTree = "<group>"; };
+		B2FA90E72191188800A1B63E /* FontStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +139,6 @@
 				B2FA90B7218F814900A1B63E /* NetworkLayer */,
 				B2FA9092218F7C8100A1B63E /* AppDelegate.swift */,
 				B2FA9094218F7C8100A1B63E /* ViewController.swift */,
-				B2FA9096218F7C8100A1B63E /* Main.storyboard */,
 				B2FA909C218F7C8300A1B63E /* Assets.xcassets */,
 				B2FA909E218F7C8300A1B63E /* LaunchScreen.storyboard */,
 				B2FA90A1218F7C8300A1B63E /* Info.plist */,
@@ -235,6 +234,7 @@
 			children = (
 				B2FA90DF2190F42100A1B63E /* ColorStyles.swift */,
 				B2FA90E12190F4C600A1B63E /* Stylable.swift */,
+				B2FA90E72191188800A1B63E /* FontStyles.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -336,7 +336,6 @@
 				B2FA90D92190B2EA00A1B63E /* TempData.json in Resources */,
 				B2FA90A0218F7C8300A1B63E /* LaunchScreen.storyboard in Resources */,
 				B2FA909D218F7C8300A1B63E /* Assets.xcassets in Resources */,
-				B2FA9098218F7C8100A1B63E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +433,7 @@
 				B2FA90E22190F4C600A1B63E /* Stylable.swift in Sources */,
 				B2FA90C4218F83E100A1B63E /* UserNetwork.swift in Sources */,
 				B2FA9095218F7C8100A1B63E /* ViewController.swift in Sources */,
+				B2FA90E82191188800A1B63E /* FontStyles.swift in Sources */,
 				B2FA90D721909A7000A1B63E /* DashboardCell.swift in Sources */,
 				B2FA90C9218F875C00A1B63E /* Network.swift in Sources */,
 				B2FA90BA218F818D00A1B63E /* FirebaseEndpoints.swift in Sources */,
@@ -463,14 +463,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B2FA9096218F7C8100A1B63E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B2FA9097218F7C8100A1B63E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B2FA909E218F7C8300A1B63E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

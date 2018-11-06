@@ -29,7 +29,7 @@ class RootTableViewController: UITableViewController {
         self.tableView.register(DashboardCell.self, forCellReuseIdentifier: "Dashboard")
         self.tableView.separatorStyle = .none
 
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.configure()
     }
@@ -38,6 +38,19 @@ class RootTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let profileButton: UIBarButtonItem = {
+            let b = UIBarButtonItem()
+            b.image = UIImage(named: "profileLogo")?.withRenderingMode(.alwaysTemplate)
+            b.style = .plain
+            b.target = self
+            b.action = #selector(profilePressed)
+            return b
+        }()
+        
+        //profileButton.
+        
+        self.navigationItem.rightBarButtonItem = profileButton
     }
     
     func configure(){
@@ -108,3 +121,14 @@ class RootTableViewController: UITableViewController {
 
 }
 
+@objc
+extension RootTableViewController {
+    
+    func profilePressed(){
+        
+        let alert = UIAlertController(title: "Whoops", message: "It seems you do not have access to this.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+}

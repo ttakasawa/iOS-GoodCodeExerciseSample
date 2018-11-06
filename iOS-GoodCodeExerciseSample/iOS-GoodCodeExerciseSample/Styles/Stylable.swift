@@ -8,4 +8,11 @@
 
 import Foundation
 
-protocol Stylable: ColorStyles { }
+protocol Stylable: ColorStyles, FontStyles { }
+
+
+//extension Stylable where Self: DetailViewController {
+//
+//    override like this
+//
+//}
