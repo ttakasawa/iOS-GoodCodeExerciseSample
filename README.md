@@ -3,10 +3,7 @@
 This project is a sample project to practice writing clean and manageable protocol oriented code. 
 
 ## Sample Images
-<img width="168" height="333" src="Resource/home.png"/>
-<img width="168" height="333" src="Resource/loading.png"/>
-<img width="168" height="333" src="Resource/linkedin.png"/>
-<img width="168" height="333" src="Resource/resume.png"/>
+<img width="924" height="451" src="Resource/SampleImages.png"/>
 
 ## Data Model
 UserData: This is a concrete instance 
