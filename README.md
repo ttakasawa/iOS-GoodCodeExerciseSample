@@ -3,7 +3,7 @@
 This project is a sample project to practice writing clean and manageable protocol oriented code. It is an app that contains all information necessary for recruiters to examine candidates. It may eliminate the need for candidates to keep submitting applications to multiple website over and over, if standardized. In this sample, I have added Resume, Github link, LinkedIn link, my iOS app, Business Insider article featureing my app, and transcript. Please take a look!
 ##### Note
 * Please feel free to run it on your iPhone!
-* Time: 3 hrs designing + 12 hrs development + 5 hrs documentation
+* Time: 3 hrs designing + 8 hrs development + 5 hrs documentation
 
 ##### Table of Contents
 * Data Model
