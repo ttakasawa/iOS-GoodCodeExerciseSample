@@ -31,9 +31,40 @@ protocol UserNetwork {
 }
 ```
 
+This protocol requires NetworkManager to make actual call to the database. The description about NetworkManager is in the next sub-section.
+```
+extension UserNetwork where Self: NetworkManager {
+    func login(email: String, password: String, completion: @escaping (_ user: UserData? , _ error: Error?) -> Void) {
+        
+//        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+//        }
+        
+    }
+    
+    
+    func updateUserInfo(user: UserData, completion: @escaping (_ user: UserData?, _ error: Error?) -> Void) {
+        
+        self.fetchFirebase(endpoint: UserEndpoints.updateUser(user: user)) { (user: UserData?, error: Error?) in
+            completion(user, error)
+        }
+    }
+    
+    func queryUser(userId: String, completion: @escaping (_ user: UserData?, _ error: Error?) -> Void){
+        
+        self.fetchFirebase(endpoint: UserEndpoints.queryUser(userId: userId)) { (userData: UserData?, error: Error?) in
+            
+            completion(userData, error)
+            
+        }
+    }
+}
+```
+
+Note: (Explanation to fetchFirebase and UserEndpoints.queryUser(userId: userId) is in later section.)
+
 
 #### NetworkManager
-This is responsible for communicating with Firebase real time database.
+This is responsible for communicating with Firebase real time database. As you can see from the example in the prevous sub-section, protocols such as UserNetwork is used as interface for NetworkManager. NetworkManager is the one that is actually making a call to Firebase.
 ```
 protocol NetworkManager {
     var firebaseDBConnection: DatabaseReference { get set }
@@ -43,6 +74,8 @@ protocol NetworkManager {
     func firebaseAtomicStore(endpoints: [FirebaseEndpoints], completion: @escaping ( _ success: Bool) -> Void)
 }
 ```
+
+
 One of the functions here, fetchFirebase, is solely responsible for communicating with real time database.  Clever use of endpoint allows fetchFirebase to stay absctract, so it can be reused over and over. The description for FirebaseEndpoints is in the later subsection.
 
 
@@ -63,10 +96,16 @@ SampleNetwork can be used as a singleton on Global struct like following:
 struct Global {
 
     class Network: SampleNetwork {
+    
+        var firebaseDBConnection: DatabaseReference
+        var user: UserData?
         //initialize necessary information here.
     }
     
     class DemoNetwork: SampleNetwork {
+    
+        var firebaseDBConnection: DatabaseReference
+        var user: UserData?
     }
     
     static var network: SampleNetwork = Network()
@@ -86,16 +125,20 @@ If you'd like to see UI of the app without making real network calls to Firebase
 Depending on whether or not you would make network call to firebase, you might want to have different implementation of NetworkManager like following:
 ```
 extension NetworkManager where Self: Global.Network {
-    //real
+    // real call to firebase
+    // Please check out the project, it is too long for Readme
 }
 extension NetworkManager where Self: Global.DemoNetwork {
     //test
 }
 ```
 
+
 In order to switch to DemoNetwork, you'd simpley add
 ```
-Global.network = Global.DemoNetwork()
+if isDemo {
+    Global.network = Global.DemoNetwork()
+}
 ```
 in AppDelegate.
 
@@ -106,7 +149,7 @@ in AppDelegate.
 As briefly mentioned earlier, a clever use of endpoints is the reason why I could keep reusing one function to query / update any data from real time database.
 
 #### FirebaseEndpoints
-This protocol promises variables needed to make call to database.
+This protocol promises variables needed to make call to database will be provided. By changing the values of those variables of endpoint and injecting them to fetchFirebase() function in NetworkManager, you can reuse fetchFirebase() function for any calls to real time database.
 ```
 protocol FirebaseEndpoints {
     
@@ -117,10 +160,10 @@ protocol FirebaseEndpoints {
     
 }
 ```
-As you can see, you can use 'body' to distinguish whether a call is read or write. (When you would like to read from database, your 'body' variable is nil.)
+Notice that, you can use 'body' to distinguish whether a call is read or write. (When you would like to read from database, your 'body' variable is nil.)
 
 
-Generally, there are many different types of calls you have to make to operate more complex app. Therefore, it may be a good practice to group endpoints by theme. 
+Generally, there are many different types of calls you have to make to if the app becomes more complex. Therefore, it may be a good practice to group endpoints by theme. 
 
 
 For example, all the UserData related endpoints might be grouped as following:
@@ -153,6 +196,7 @@ enum UserEndpoints: FirebaseEndpoints {
     
 }
 ```
+
 
 
 
@@ -247,7 +291,7 @@ self.network.queryUser(userId: "User_Id_Goes_Here") { (user: UserData?, error: E
 
 
 
-Here, it is important not to call any functions in NetworkManager directly. The whole purpose of UserNetwork is to offer a layer of abstractions. This way, code remains more transparent, and also protocols such as NetworkManager can remain abstract.
+Here, it is important not to call any functions in NetworkManager directly. The whole purpose of UserNetwork is to offer a layers of abstractions. This way, code remains more transparent, and also protocols such as NetworkManager can remain abstract to be used over and over.
 
 
 
