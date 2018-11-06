@@ -78,6 +78,59 @@ protocol NetworkManager {
 
 One of the functions here, fetchFirebase, is solely responsible for communicating with real time database.  Clever use of endpoint allows fetchFirebase to stay absctract, so it can be reused over and over. The description for FirebaseEndpoints is in the later subsection.
 
+##### fetchFirebase
+This function is an abstract function which can be used for any calls to firebase. Variables that needs to be changed based on each network calls can be switched using endpoints. Furthermore, it only returns generic type variable that is gurenteed to be decodable. In this example, it is responsibility of UserNetwork to convert thie generic type variable to UserData variable. 
+
+###### Path
+path can be created by combining variable realtimeRef protocol and path of endpoint. realtimeRef is a variable of NetworkManager and fixed for all kinds of call. Endpoint is injected to function every time the network call is made, which can be unique for every calls.
+```
+var realtimeRef: DatabaseReference!
+        
+if let path = endpoint.path {
+    realtimeRef = self.firebaseDBConnection.child(path)
+}else{
+    realtimeRef = self.firebaseDBConnection
+}
+```
+
+###### Querying or updating
+Whether or not the call is read can be determined based on the body of endpoint. When you are only reading from firebase, body must be empty. On the other hand, body has to exist if you are writing to database.
+```
+if let body = endpoint.body {
+
+    // If body exists, it is write operation
+
+    realtimeRef.setValue(body)
+
+    if let storedData = body as? T{
+        completion(storedData, nil)
+    }else{
+        completion(nil, nil)
+    }
+    
+} else {
+
+    // Else, it is read operation
+    
+    realtimeRef.observeSingleEvent(of: .value, with: { snapshot in
+
+        guard let value = snapshot.value else { return }
+
+        do {
+
+            let model = try FirebaseDecoder().decode(T.self, from: value)
+            completion(model, nil)
+
+        } catch let error {
+
+            completion(nil, error)
+
+        }
+    })
+}
+```
+
+
 
 
 
@@ -331,6 +384,6 @@ Here, it is important not to call any functions in NetworkManager directly. The 
 
 
 ### DetailViewController
-This is just WkWebView displaying website or pdf stored in Firebase Storage.
+This ViewController just displays WkWebView based on URL that is injected in initialization method. Both website and pdf are displayed in this manner. 
 
 
