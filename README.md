@@ -18,7 +18,7 @@ This is enum for differet types of application materials such as linkedin, resum
 ## Network Layer
 
 #### UserNetwork
-This is model object responsible for querying, updating, and login of UserData object. It executes all networking stuff for UserData object.
+This model object is responsible for querying, updating, and login of UserData object. It executes all networking stuff for UserData object, and works as an interface of NetworkManager.
 ```
 protocol UserNetwork {
 
@@ -32,6 +32,7 @@ protocol UserNetwork {
 ```
 
 This protocol requires NetworkManager to make actual call to the database. The description about NetworkManager is in the next sub-section.
+
 ```
 extension UserNetwork where Self: NetworkManager {
     func login(email: String, password: String, completion: @escaping (_ user: UserData? , _ error: Error?) -> Void) {
