@@ -10,7 +10,7 @@ This project is a sample project to practice writing clean and manageable protoc
 <img width="924" height="451" src="Resource/SampleImages.png"/>
 
 ## Data Model
-### UserData
+#### UserData
 This is responsible for storing user's attributes.
 ```
 class UserData: Codable {
@@ -28,7 +28,7 @@ class UserData: Codable {
     }
 }
 ```
-### UserApplicationData
+#### UserApplicationData
 UserApplicationData object contains all user generated values for each of their application materials.
 ```
 struct UserApplicationData: Codable {
@@ -41,7 +41,7 @@ struct UserApplicationData: Codable {
 }
 ```
 
-### ApplicationMaterial
+#### ApplicationMaterial
 This is an enenumeratorum for differet types of application materials such as linkedin, resume, etc.
 ```
 enum ApplicationMaterial: String, Codable, ColorStyles {
@@ -69,7 +69,7 @@ enum ApplicationMaterial: String, Codable, ColorStyles {
 ## Network Layer
 Here comes the fun part.
 #### UserNetwork
-This model object is responsible for querying, updating, and login of UserData object. It executes all networking stuff for UserData object, and works as an interface of NetworkManager.
+This model object is responsible for querying, updating, and log-in of UserData object. It executes all networking stuff for UserData object, and works as an interface of NetworkManager.
 ```
 protocol UserNetwork {
 
