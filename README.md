@@ -1,13 +1,15 @@
 # iOS-GoodCodeExerciseSample
 
-This project is a sample project to practice writing clean and manageable protocol oriented code. 
+This project is a sample project to practice writing clean and manageable protocol oriented code. Please take a look!
 
 ## Sample Images
 <img width="924" height="451" src="Resource/SampleImages.png"/>
 
 ## Data Model
-UserData: This is responsible for storing user's attributes.
-ApplicationMaterial: This is enum for differet types of application materials such as linkedin, resume, etc.
+### UserData
+This is responsible for storing user's attributes.
+### ApplicationMaterial
+This is enum for differet types of application materials such as linkedin, resume, etc.
 
 ## Network Layer
 
