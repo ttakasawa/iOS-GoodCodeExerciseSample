@@ -235,19 +235,37 @@ extension UserApplicationData: ApplicationDisplayable {
 
 Stylable is responsible for styling views. It can be the composition of multiple protocols such as ColorStyles or FontStyles, which may look like this:
 ```
+protocol Stylable: ColorStyles, FontStyles { }
+
 protocol ColorStyles {
     
     func getMainColor() -> UIColor
     func getSecondaryColor() -> UIColor
     
 }
+
+protocol FontStyles {
+    // font stuff
+}
 ```
 
 
 
-It can be customized and used for any objects by making extension.
+It can be customized for any objects by making extension, and can be used for any objects. 
 
 ```
+class DetailViewController: UIViewController, Stylable {
+
+    // You can call any functions in Stylable after init method now.
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = self.getMainColor()
+    }
+    
+}
+
 extension Stylable where Self: DetailViewController {
 
     func getMainColor() -> UIColor {
@@ -264,7 +282,8 @@ extension Stylable where Self: DetailViewController {
 
 ## ViewControllers
 
-RootTableViewController: This ViewController is responsible for initiating a network call from Global.network, which is injected in the initialization. This network object can be injected to other ViewController, which requires to make netwrok call, if needed. 
+### RootTableViewController
+This ViewController is responsible for initiating a network call from Global.network, which is injected in the initialization. This network object can be injected to other ViewController, which requires to make netwrok call, if needed. 
 ```
 init (network: SampleNetwork) {
 
@@ -296,6 +315,7 @@ Here, it is important not to call any functions in NetworkManager directly. The 
 
 
 
-DetailViewController: This is just WkWebView displaying website or pdf stored in Firebase Storage.
+### DetailViewController
+This is just WkWebView displaying website or pdf stored in Firebase Storage.
 
 
