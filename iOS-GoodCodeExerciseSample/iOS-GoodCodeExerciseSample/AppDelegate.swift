@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
         
-        let homeScreen: RootTableViewController = RootTableViewController()
+        let homeScreen: RootTableViewController = RootTableViewController(network: Global.network)
         let navController = UINavigationController(rootViewController: homeScreen)
         
         window?.rootViewController = navController

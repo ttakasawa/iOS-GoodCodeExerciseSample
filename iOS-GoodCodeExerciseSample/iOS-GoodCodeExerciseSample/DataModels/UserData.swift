@@ -12,7 +12,7 @@ class UserData: Codable {
     var id: String
     var name: String
     var email: String
-    var userApplicationMaterial: [DashboardData]
+    var userApplicationMaterial: [UserApplicationData]
     
     init (id: String, name: String, email: String) {
         

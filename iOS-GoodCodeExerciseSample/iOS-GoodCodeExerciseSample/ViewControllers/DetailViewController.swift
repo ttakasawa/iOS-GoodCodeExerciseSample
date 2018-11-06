@@ -67,6 +67,7 @@ class DetailViewController: UIViewController, NVActivityIndicatorViewable {
     }
     
     func hideViewWhileLoading(){
+        
         cover.backgroundColor = self.themeColor
         cover.translatesAutoresizingMaskIntoConstraints = false
         

@@ -8,27 +8,21 @@
 
 import UIKit
 
-struct DashboardData: Codable {
-    var id: String
-    var material: ApplicationMaterial
-    var name: String
-    var url: String
-    
-    var icon: UIImage {
-        return self.material.iconImage
-    }
-    
-    var themeColor: UIColor {
-        return self.material.backgroundColor
-    }
-    
-}
-
-
 class RootTableViewController: UITableViewController {
     
-    var cellData: [DashboardData] = []
-
+    var network: SampleNetwork
+    var cellData: [UserApplicationData] = []
+    
+    init (network: SampleNetwork) {
+        self.network = network
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,19 +37,26 @@ class RootTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationItem.title = "Tomoki Takasawa"
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func configure(){
         
-        Global.network.queryUser(userId: "id") { (user: UserData?, error: Error?) in
+        self.network.queryUser(userId: "id") { (user: UserData?, error: Error?) in
+            
             if error != nil {
-                print(error?.localizedDescription)
+                
+                print(error?.localizedDescription ?? "error reading Firebase DB")
                 return
+                
             }else{
-                guard let applicationMaterials = user?.userApplicationMaterial else { return }
-                self.cellData = applicationMaterials
+                
+                guard let user = user else { return }
+                self.network.user = user
+                
+                self.navigationItem.title = user.name
+                self.cellData = user.userApplicationMaterial
+                
             }
             self.tableView.reloadData()
         }
@@ -104,51 +105,6 @@ class RootTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 170
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

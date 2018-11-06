@@ -29,6 +29,7 @@
 		B2FA90E02190F42100A1B63E /* ColorStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90DF2190F42100A1B63E /* ColorStyles.swift */; };
 		B2FA90E22190F4C600A1B63E /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90E12190F4C600A1B63E /* Stylable.swift */; };
 		B2FA90E42191138700A1B63E /* ApplicationMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90E32191138700A1B63E /* ApplicationMaterial.swift */; };
+		B2FA90E62191165700A1B63E /* UserApplicationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90E52191165700A1B63E /* UserApplicationData.swift */; };
 		B486D01BB76A6E58960B9AAB /* Pods_iOS_GoodCodeExerciseSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7026258F0A29AED93DDAAEBA /* Pods_iOS_GoodCodeExerciseSample.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		B2FA90DF2190F42100A1B63E /* ColorStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyles.swift; sourceTree = "<group>"; };
 		B2FA90E12190F4C600A1B63E /* Stylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
 		B2FA90E32191138700A1B63E /* ApplicationMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMaterial.swift; sourceTree = "<group>"; };
+		B2FA90E52191165700A1B63E /* UserApplicationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApplicationData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 			children = (
 				B2FA90BC218F82B100A1B63E /* UserData.swift */,
 				B2FA90E32191138700A1B63E /* ApplicationMaterial.swift */,
+				B2FA90E52191165700A1B63E /* UserApplicationData.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2FA90BF218F831400A1B63E /* NetworkManager.swift in Sources */,
+				B2FA90E62191165700A1B63E /* UserApplicationData.swift in Sources */,
 				B2FA90E02190F42100A1B63E /* ColorStyles.swift in Sources */,
 				B2FA90C7218F848800A1B63E /* UserEndpoints.swift in Sources */,
 				B2FA909B218F7C8100A1B63E /* iOS_GoodCodeExerciseSample.xcdatamodeld in Sources */,
