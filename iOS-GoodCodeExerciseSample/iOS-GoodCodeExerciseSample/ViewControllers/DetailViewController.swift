@@ -65,6 +65,7 @@ class DetailViewController: UIViewController, NVActivityIndicatorViewable {
         
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.title = self.name
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
     }
     
     func hideViewWhileLoading(){

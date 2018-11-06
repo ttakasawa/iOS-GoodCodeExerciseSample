@@ -10,7 +10,7 @@ import UIKit
 
 class RootTableViewController: UITableViewController {
     
-    var network: SampleNetwork
+    var network: UserNetwork
     var cellData: [ApplicationDisplayable] = []
     
     init (network: SampleNetwork) {
@@ -38,6 +38,7 @@ class RootTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.barTintColor = UIColor.darkGray
         
         let profileButton: UIBarButtonItem = {
             let b = UIBarButtonItem()

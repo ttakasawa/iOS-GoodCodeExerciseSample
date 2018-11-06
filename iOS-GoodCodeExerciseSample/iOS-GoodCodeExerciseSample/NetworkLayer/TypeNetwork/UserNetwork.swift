@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 protocol UserNetwork {
     var user: UserData? { get set }
@@ -20,11 +21,9 @@ protocol UserNetwork {
 extension UserNetwork where Self: NetworkManager {
     func login(email: String, password: String, completion: @escaping (_ user: UserData? , _ error: Error?) -> Void) {
         
-//        self.fetchAuth(endpoint: UserEndpoints.login(email: email, password: password)){ (returnUserId: String?, error: Error?) in
-//            self.queryUser(completion: { (user: UserData?, error: Error?) in
-//                completion(user, error)
-//            })
+//        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
 //        }
+        
     }
     
     
@@ -38,13 +37,9 @@ extension UserNetwork where Self: NetworkManager {
     func queryUser(userId: String, completion: @escaping (_ user: UserData?, _ error: Error?) -> Void){
         
         self.fetchFirebase(endpoint: UserEndpoints.queryUser(userId: userId)) { (userData: UserData?, error: Error?) in
-            if error != nil {
-                completion(nil, error)
-            }else{
-                
-                completion(userData, nil)
-            }
+            
+            completion(userData, error)
+            
         }
-        
     }
 }

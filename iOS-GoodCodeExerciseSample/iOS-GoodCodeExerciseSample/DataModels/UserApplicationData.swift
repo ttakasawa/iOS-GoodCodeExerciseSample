@@ -16,3 +16,4 @@ struct UserApplicationData: Codable {
     var url: String
     
 }
+
