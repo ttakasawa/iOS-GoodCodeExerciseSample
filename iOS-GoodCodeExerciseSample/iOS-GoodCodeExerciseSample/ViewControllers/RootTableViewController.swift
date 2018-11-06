@@ -26,11 +26,11 @@ class RootTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = .black
+        
         self.tableView.register(DashboardCell.self, forCellReuseIdentifier: "Dashboard")
         self.tableView.separatorStyle = .none
 
-        //self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
         self.configure()
     }
     
@@ -47,8 +47,6 @@ class RootTableViewController: UITableViewController {
             b.action = #selector(profilePressed)
             return b
         }()
-        
-        //profileButton.
         
         self.navigationItem.rightBarButtonItem = profileButton
     }
@@ -110,8 +108,10 @@ class RootTableViewController: UITableViewController {
         let cell = self.cellData[indexPath.row]
         
         if let navigator = self.navigationController {
+            
             let vc = DetailViewController(stringUrl: cell.url, name: cell.name, themeColor: cell.themeColor, logo: cell.icon)
             navigator.pushViewController(vc, animated: true)
+            
         }
     }
     

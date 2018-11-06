@@ -64,6 +64,7 @@ class DetailViewController: UIViewController, NVActivityIndicatorViewable {
         super.viewWillAppear(animated)
         
         navigationItem.largeTitleDisplayMode = .never
+        navigationItem.title = self.name
     }
     
     func hideViewWhileLoading(){
@@ -90,7 +91,9 @@ class DetailViewController: UIViewController, NVActivityIndicatorViewable {
         logoView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.startAnimating(CGSize(width: 190, height: 190), message: nil, messageFont: nil, type: NVActivityIndicatorType.ballClipRotateMultiple, color: .white, padding: nil, displayTimeThreshold: nil, minimumDisplayTime: nil, backgroundColor: .clear, textColor: nil, fadeInAnimation: nil)
+            
+            self.startAnimating(CGSize(width: 210, height: 210), message: nil, messageFont: nil, type: NVActivityIndicatorType.ballClipRotateMultiple, color: .white, padding: nil, displayTimeThreshold: nil, minimumDisplayTime: nil, backgroundColor: .clear, textColor: nil, fadeInAnimation: nil)
+            
         }
         
         self.navigationController?.navigationBar.isHidden = true
@@ -105,7 +108,9 @@ extension DetailViewController: WKUIDelegate, WKNavigationDelegate {
         if (Float(self.webView.estimatedProgress) >= 0.85){
             
             UIView.animate(withDuration: 1.5, animations: {
+                
                 self.cover.alpha = 0.0
+                
             }, completion: { (value: Bool) in
                 
                 self.cover.removeFromSuperview()
