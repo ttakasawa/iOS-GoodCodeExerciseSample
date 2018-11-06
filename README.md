@@ -12,11 +12,62 @@ This project is a sample project to practice writing clean and manageable protoc
 ## Data Model
 ### UserData
 This is responsible for storing user's attributes.
+```
+class UserData: Codable {
+    var id: String
+    var name: String
+    var email: String
+    var userApplicationMaterial: [UserApplicationData]
+    
+    init (id: String, name: String, email: String) {
+        
+        self.id = id
+        self.name = name
+        self.email = email
+        self.userApplicationMaterial = []
+    }
+}
+```
+### UserApplicationData
+UserApplicationData object contains all user generated values for each of their application materials.
+```
+struct UserApplicationData: Codable {
+    
+    var id: String
+    var material: ApplicationMaterial
+    var name: String
+    var url: String
+    
+}
+```
+
 ### ApplicationMaterial
-This is enum for differet types of application materials such as linkedin, resume, etc.
+This is an enenumeratorum for differet types of application materials such as linkedin, resume, etc.
+```
+enum ApplicationMaterial: String, Codable, ColorStyles {
+
+    case resume
+    case github
+    // so on
+    
+    var iconImage: UIImage {
+        // return icon for each case
+    }
+    
+    var backgroundColor: UIColor {
+        switch self {
+        
+        //Each case goes here
+        
+        default:
+            return self.getRed()
+        }
+    ]
+}
+```
 
 ## Network Layer
-
+Here comes the fun part.
 #### UserNetwork
 This model object is responsible for querying, updating, and login of UserData object. It executes all networking stuff for UserData object, and works as an interface of NetworkManager.
 ```
