@@ -8,10 +8,10 @@ This project is a sample project to practice writing clean and manageable protoc
 ##### Table of Contents
 * Data Model
 * Network Layer
-** NetworkManager
-** Endpoints
-** Interfaces
-** Unit Testing
+    * NetworkManager
+    * Endpoints
+    * Interfaces
+    * Unit Testing
 * Displayable
 * Stylable
 * ViewControllers
