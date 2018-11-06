@@ -13,6 +13,8 @@ target 'iOS-GoodCodeExerciseSample' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  
+  pod 'NVActivityIndicatorView'
 
   # Pods for iOS-GoodCodeExerciseSample
 

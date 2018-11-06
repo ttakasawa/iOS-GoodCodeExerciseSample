@@ -113,6 +113,20 @@ extension NetworkManager where Self: Global.Network {
 extension NetworkManager where Self: Global.DemoNetwork {
     
     func fetchFirebase<T: Decodable>(endpoint: FirebaseEndpoints, completion: @escaping (_ result: T?, _ error: Error?) -> Void) {
+        guard let fileUrl = Bundle.main.url(forResource: "DemoData", withExtension: "json") else { return }
+        
+        do {
+            let data = try Data(contentsOf: fileUrl)
+            
+            guard let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+                print("Could not cast JSON content as a Dictionary<String, Any>")
+                return
+            }
+            
+            print(dictionary)
+        } catch {
+            print("Error: \(error)")
+        }
     }
     
     func fetchAuth(endpoint: FirebaseEndpoints, completion: @escaping (_ id: String?, _ error: Error?) -> Void) {

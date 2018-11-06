@@ -22,13 +22,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        FirebaseApp.configure()
+        
         
         let isDemo: Bool = self.demoMode()
         
         if isDemo {
             Global.network = Global.DemoNetwork()
         }
+        
+        FirebaseApp.configure()
+        
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        window?.backgroundColor = UIColor.white
+        window?.makeKeyAndVisible()
+        
+        let homeScreen: RootTableViewController = RootTableViewController()
+        let navController = UINavigationController(rootViewController: homeScreen)
+        
+        window?.rootViewController = navController
         
         return true
     }

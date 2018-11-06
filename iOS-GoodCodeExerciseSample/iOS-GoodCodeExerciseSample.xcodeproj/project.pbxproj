@@ -22,6 +22,13 @@
 		B2FA90C4218F83E100A1B63E /* UserNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90C3218F83E100A1B63E /* UserNetwork.swift */; };
 		B2FA90C7218F848800A1B63E /* UserEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90C6218F848800A1B63E /* UserEndpoints.swift */; };
 		B2FA90C9218F875C00A1B63E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90C8218F875C00A1B63E /* Network.swift */; };
+		B2FA90D32190993400A1B63E /* RootTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90D22190993400A1B63E /* RootTableViewController.swift */; };
+		B2FA90D721909A7000A1B63E /* DashboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90D621909A7000A1B63E /* DashboardCell.swift */; };
+		B2FA90D92190B2EA00A1B63E /* TempData.json in Resources */ = {isa = PBXBuildFile; fileRef = B2FA90D82190B2EA00A1B63E /* TempData.json */; };
+		B2FA90DD2190C43C00A1B63E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90DC2190C43C00A1B63E /* DetailViewController.swift */; };
+		B2FA90E02190F42100A1B63E /* ColorStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90DF2190F42100A1B63E /* ColorStyles.swift */; };
+		B2FA90E22190F4C600A1B63E /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90E12190F4C600A1B63E /* Stylable.swift */; };
+		B2FA90E42191138700A1B63E /* ApplicationMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA90E32191138700A1B63E /* ApplicationMaterial.swift */; };
 		B486D01BB76A6E58960B9AAB /* Pods_iOS_GoodCodeExerciseSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7026258F0A29AED93DDAAEBA /* Pods_iOS_GoodCodeExerciseSample.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +67,13 @@
 		B2FA90C3218F83E100A1B63E /* UserNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetwork.swift; sourceTree = "<group>"; };
 		B2FA90C6218F848800A1B63E /* UserEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoints.swift; sourceTree = "<group>"; };
 		B2FA90C8218F875C00A1B63E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		B2FA90D22190993400A1B63E /* RootTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTableViewController.swift; sourceTree = "<group>"; };
+		B2FA90D621909A7000A1B63E /* DashboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCell.swift; sourceTree = "<group>"; };
+		B2FA90D82190B2EA00A1B63E /* TempData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TempData.json; sourceTree = "<group>"; };
+		B2FA90DC2190C43C00A1B63E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B2FA90DF2190F42100A1B63E /* ColorStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyles.swift; sourceTree = "<group>"; };
+		B2FA90E12190F4C600A1B63E /* Stylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
+		B2FA90E32191138700A1B63E /* ApplicationMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMaterial.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +130,9 @@
 		B2FA9091218F7C8100A1B63E /* iOS-GoodCodeExerciseSample */ = {
 			isa = PBXGroup;
 			children = (
+				B2FA90DE2190F40900A1B63E /* Styles */,
+				B2FA90D421909A5200A1B63E /* UIComponents */,
+				B2FA90CF219098ED00A1B63E /* ViewControllers */,
 				B2FA90BB218F829800A1B63E /* DataModels */,
 				B2FA90B7218F814900A1B63E /* NetworkLayer */,
 				B2FA9092218F7C8100A1B63E /* AppDelegate.swift */,
@@ -126,6 +143,7 @@
 				B2FA90A1218F7C8300A1B63E /* Info.plist */,
 				B2FA9099218F7C8100A1B63E /* iOS_GoodCodeExerciseSample.xcdatamodeld */,
 				B2FA90B5218F7FA300A1B63E /* GoogleService-Info.plist */,
+				B2FA90D82190B2EA00A1B63E /* TempData.json */,
 			);
 			path = "iOS-GoodCodeExerciseSample";
 			sourceTree = "<group>";
@@ -163,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				B2FA90BC218F82B100A1B63E /* UserData.swift */,
+				B2FA90E32191138700A1B63E /* ApplicationMaterial.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -181,6 +200,40 @@
 				B2FA90C6218F848800A1B63E /* UserEndpoints.swift */,
 			);
 			path = NetworkEndpoints;
+			sourceTree = "<group>";
+		};
+		B2FA90CF219098ED00A1B63E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B2FA90D22190993400A1B63E /* RootTableViewController.swift */,
+				B2FA90DC2190C43C00A1B63E /* DetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B2FA90D421909A5200A1B63E /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				B2FA90D521909A5B00A1B63E /* TableViewCell */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		B2FA90D521909A5B00A1B63E /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B2FA90D621909A7000A1B63E /* DashboardCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		B2FA90DE2190F40900A1B63E /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				B2FA90DF2190F42100A1B63E /* ColorStyles.swift */,
+				B2FA90E12190F4C600A1B63E /* Stylable.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 		F9FF791D371F597B2CBFDD95 /* Frameworks */ = {
@@ -277,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2FA90B6218F7FA400A1B63E /* GoogleService-Info.plist in Resources */,
+				B2FA90D92190B2EA00A1B63E /* TempData.json in Resources */,
 				B2FA90A0218F7C8300A1B63E /* LaunchScreen.storyboard in Resources */,
 				B2FA909D218F7C8300A1B63E /* Assets.xcassets in Resources */,
 				B2FA9098218F7C8100A1B63E /* Main.storyboard in Resources */,
@@ -341,6 +395,7 @@
 				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -351,6 +406,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -367,13 +423,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2FA90BF218F831400A1B63E /* NetworkManager.swift in Sources */,
+				B2FA90E02190F42100A1B63E /* ColorStyles.swift in Sources */,
 				B2FA90C7218F848800A1B63E /* UserEndpoints.swift in Sources */,
 				B2FA909B218F7C8100A1B63E /* iOS_GoodCodeExerciseSample.xcdatamodeld in Sources */,
+				B2FA90DD2190C43C00A1B63E /* DetailViewController.swift in Sources */,
+				B2FA90E22190F4C600A1B63E /* Stylable.swift in Sources */,
 				B2FA90C4218F83E100A1B63E /* UserNetwork.swift in Sources */,
 				B2FA9095218F7C8100A1B63E /* ViewController.swift in Sources */,
+				B2FA90D721909A7000A1B63E /* DashboardCell.swift in Sources */,
 				B2FA90C9218F875C00A1B63E /* Network.swift in Sources */,
 				B2FA90BA218F818D00A1B63E /* FirebaseEndpoints.swift in Sources */,
+				B2FA90D32190993400A1B63E /* RootTableViewController.swift in Sources */,
 				B2FA90BD218F82B100A1B63E /* UserData.swift in Sources */,
+				B2FA90E42191138700A1B63E /* ApplicationMaterial.swift in Sources */,
 				B2FA9093218F7C8100A1B63E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
