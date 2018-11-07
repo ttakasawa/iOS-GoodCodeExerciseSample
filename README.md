@@ -6,8 +6,8 @@ This project is a sample project to practice writing clean and manageable protoc
 * Time: 3 hrs designing + 6 hrs development + 2 hrs refining + 5 hrs documentation
 
 ##### Table of Contents
-* Data Model
-* Network Layer
+* Data Model (class, struct, enum)
+* Network Layer (integrated with Firebase)
     * NetworkManager
     * Endpoints
     * Interfaces
